@@ -1,4 +1,5 @@
 # Trans-Line
 
 As a business owner
-I want to be able to show services of my trucking business and keep track of my drivers.
+I want a website for my business
+I want to be able to login as admin, show services and keep track of my drivers.
