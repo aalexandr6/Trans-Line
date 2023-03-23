@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS Drivers_db;
+CREATE DATABASE Drivers_db;
