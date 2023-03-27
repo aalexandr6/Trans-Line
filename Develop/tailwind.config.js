@@ -4,6 +4,9 @@ module.exports = {
 
   theme: {
     extend: {},
+      backgroundImage:{
+          'hero-pattern': "url('/public/images/truck1.png')}"
+      }
   },
   plugins: [],
 }
@@ -21,3 +24,4 @@ module.exports = {
   ]
 
 }
+
