@@ -1,2 +1,11 @@
-DROP DATABASE IF EXISTS Drivers_db;
-CREATE DATABASE Drivers_db;
+DROP DATABASE IF EXISTS drivers_db;
+CREATE DATABASE drivers_db;
+
+USE drivers_db;
+
+CREATE TABLE drivers (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  driver_name VARCHAR(50) NOT NULL
+);
+
+
