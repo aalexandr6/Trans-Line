@@ -46,5 +46,14 @@
 </div>
 </section>
 </body>
+{{#if logged_in}}
+<a href="../views/homep.html">profile</a> |
+<button class="no-button" id="logout">logout</button>
+{{else}}
+<a href="/login">login</a>
+{{/if}}
+</nav>
+</header>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+<script src="../public/js/login.js"></script>
 </html>
