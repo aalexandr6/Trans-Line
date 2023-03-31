@@ -11,10 +11,22 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-
 const hbs = exphbs.create({ helpers });
 
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+//will expire in 15 minutes
+    expires: 15 * 60 * 1000
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
 app.use(session(sess))
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -91,6 +103,6 @@ app.delete('/api/driver/:id', (req, res) => {
 });
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening on port 3001'));
+  app.listen(PORT, () => console.log('Now live on port 3001'));
 });
 
