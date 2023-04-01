@@ -2,7 +2,7 @@ const {user} = require('../models/user');
 const {data} = require('../models/data');
 const sequelize = require('../config/connection');
 const userData = require('./userData.json');
-const driverData = require('./logData.json');
+const driverData = require('./driverData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true })
@@ -19,7 +19,6 @@ const drivers = await data.bulkCreate(driverData, {
   individualHooks: true,
   returning: true,
 });
-
 
 
 for (const data of driverData) {
