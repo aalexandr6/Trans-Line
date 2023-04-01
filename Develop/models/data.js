@@ -4,8 +4,8 @@ import sequelize from '../config/connection';
 class data extends Model {}
 
 data.init(
-    {
-        id: {
+{
+    id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
@@ -26,6 +26,11 @@ data.init(
                 key: 'id',
             },
         },
+        //ally said we should do this 
+        state: {
+            location
+        }
+        
     },
     {
         sequelize,
