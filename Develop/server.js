@@ -46,60 +46,10 @@ const db = mysql.createConnection(
   console.log(`Connected to the drivers_db database.`)
 );
 
-
-app.post('/api/new-driver', ({ body }, res) => {
-  const sql = `INSERT INTO drivers (driver_name)
-    VALUES (?)`;
-  const params = [body.driver_name];
-  
-  db.query(sql, params, (err, result) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-      return;
-    }
-    res.json({
-      message: 'success',
-      data: body
-    });
-  });
-});
-
-
-app.get('/api/drivers', (req, res) => {
-  const sql = `SELECT id, driver_name AS name FROM drivers`;
-  
-  db.query(sql, (err, rows) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-       return;
-    }
-    res.json({
-      message: 'success',
-      data: rows
-    });
-  });
-});
-
-
-app.delete('/api/driver/:id', (req, res) => {
-  const sql = `DELETE FROM drivers WHERE id = ?`;
-  const params = [req.params.id];
-  
-  db.query(sql, params, (err, result) => {
-    if (err) {
-      res.statusMessage(400).json({ error: res.message });
-    } else if (!result.affectedRows) {
-      res.json({
-      message: 'Driver not found'
-      });
-    } else {
-      res.json({
-        message: 'deleted',
-        changes: result.affectedRows,
-        id: req.params.id
-      });
-    }
-  });
+db.connect(err => {
+  if (err) {
+    return err;
+  }
 });
 
 sequelize.sync({ force: false }).then(() => {
