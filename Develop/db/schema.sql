@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS drivers_db;
-CREATE DATABASE drivers_db;
+DROP DATABASE IF EXISTS driverlogs_db;
+CREATE DATABASE driverlogs_db;
 
 USE drivers_db;
 

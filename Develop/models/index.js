@@ -1,14 +1,26 @@
-const user = require('./user');
-const data = require('./data');
+checkEmail = async (email) => {
+    const adminData = await admin.findOne({ where: { email: email } });
+    if (adminData) {
+        return true;
+    }
+    const driverData = await drivers.findOne({ where: { email: email } });
+    if (driverData) {
+        return true;
+    }
+    return false;
+};
 
-user.hasMany(data, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+const admin = require('./admin');
+const drivers = require('./drivers');
+
+admin.hasMany(drivers, {
+    foreignKey: 'admin_id',
+    onDelete: 'CASCADE',
 });
 
-data.belongsTo(user, {
-    foreignKey: 'user_id'
+drivers.belongsTo(admin, {
+    foreignKey: 'driver_id',
 });
 
-module.exports = { user, data };
 
+module.exports ={admin, drivers};

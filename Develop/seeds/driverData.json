@@ -1,15 +1,15 @@
 [
     {
       "name": "Mark Brown",
-      "location":"New York, NY"
+      "email":"Markbrown@yahoo.com"
     },
     {
       "name": "Dale Smith",
-      "location":"San Diego, TX"
+      "email":"Dalesmith@yahoo.com"
     },
     {
       "name": "Mike Miller",
-      "location":"Blue Springs, MO"
+      "email":"Mikemiller@gmail.com"
     }
   ]
   

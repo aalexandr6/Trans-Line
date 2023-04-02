@@ -19,7 +19,9 @@ module.exports = {
 module.exports = {
 
   content: [
-      "./node_modules/flowbite/**/*.js"
+      "./public/js/*.js",
+      "./views/*.handlebars"
+      
   ]
 
 }
