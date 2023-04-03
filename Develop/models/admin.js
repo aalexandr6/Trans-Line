@@ -1,13 +1,12 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/connection';
-import bcrypt from 'bcrypt';
-
-class admin extends Model {
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
+class Admin extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
-admin.init(
+Admin.init(
 {
     id: {
     type: DataTypes.INTEGER,
@@ -45,4 +44,4 @@ admin.init(
 }
 );
 
-module.export = admin;
+module.exports = Admin;

@@ -1,10 +1,10 @@
-import { admin } from '../models/admin.js';
+const { Admin } = require('../../models');
 const bcrypt = require('bcrypt');
 const router = require('express').Router();
 
 router.post('/', async (req, res) => {
     const password = await bcrypt.hash(req.body.password, 10);
-    const adminData = await admin.create({
+    const adminData = await Admin.create({
         email: req.body.email,
         password: password,
     });
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const adminData = await admin.findOne({ where: { email: req.body.email } });
+    const adminData = await Admin.findOne({ where: { email: req.body.email } });
     if (!adminData) {
         res.status(400).json({ message: 'No admin with that email address!' });
         return;
@@ -46,4 +46,4 @@ router.post ('/logout', (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

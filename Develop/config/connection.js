@@ -1,8 +1,11 @@
-const sequelize = require('./config/connection');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
-let sequelize;
+let sequelize;  // variable that will hold connection to database
 
+// check if the environment variable JAWSDB_URL exists
+// if it does, then we are on Heroku and we should use the JAWSDB_URL
+// if it doesn't, then we are on our local machine and we should use the local database
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 }
