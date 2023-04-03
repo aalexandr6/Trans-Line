@@ -1,11 +1,7 @@
-DROP DATABASE IF EXISTS driverlogs_db;
-CREATE DATABASE driverlogs_db;
+DROP DATABASE IF EXISTS transline_db;
+CREATE DATABASE transline_db;
 
-USE drivers_db;
 
-CREATE TABLE drivers (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  driver_name VARCHAR(50) NOT NULL
-);
+
 
 

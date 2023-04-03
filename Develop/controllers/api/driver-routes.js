@@ -1,10 +1,10 @@
-const {drivers} = require('../../models/driver.js');
+const {Drivers} = require('../../models');
 const bcrypt = require('bcrypt');
 
 const router = require('express').Router();
 
 router.post('/', async (req, res) => {
-    await drivers.create({
+    await Drivers.create({
         email: req.body.email,
         password: req.body.password,
     });
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const driverData = await drivers.findOne({ where: { email: req.body.email } });
+    const driverData = await Drivers.findOne({ where: { email: req.body.email } });
     if (!driverData) {
         res.status(400).json({ message: 'No driver with that email address!' });
         return;

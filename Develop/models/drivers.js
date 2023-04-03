@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class drivers extends Model {
+class Drivers extends Model {
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-drivers.init(
+Drivers.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -45,7 +45,7 @@ drivers.init(
     }
 );
 
-module.export = drivers;
+module.exports = Drivers;
 
 
 

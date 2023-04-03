@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const admin = require('./admin-routes');
-const driver = require('./driver-routes');
+const adminRoutes = require('./admin-routes');
+const driverRoutes = require('./driver-routes');
 
-router.use('/admin', admin);
-router.use('/driver', driver);
+router.use('/admin', adminRoutes);
+router.use('/driver', driverRoutes);
 
 module.exports = router;
 
